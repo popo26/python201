@@ -2,17 +2,26 @@
 
 import csv
 import os
+import pathlib
 
-# with open(r"C:\Users\Ai\Documents\_CodingNomads\201-lab\03_file-input-output\file-counter\filecounts.csv", mode="r") as file:
-#     print(file.read())
+path = pathlib.Path().cwd()
+print(path)
 
-# with open(r"C:\Users\Ai\Documents\_CodingNomads\201-lab\03_file-input-output\file-counter\filecounts.json", mode="r") as file:
-#     print(file.read())
-
-# with open(r"C:\Users\Ai\Documents\_CodingNomads\201-lab\03_file-input-output\file-counter\filecounts.txt", mode="r") as file:
-#     print(file.read())
-
-print("hello", os.getcwd())
-# file name only doesnt work.
-with open(r"\03_file-input-output\file-couter\filecounts.txt", mode="r") as file:
-    print(file.read())
+count = {"": 0, "csv": 0, "md": 0, "png": 0}
+folder = 0
+csv_ = 0
+md = 0
+png = 0
+for filepath in path.iterdir():
+    print(filepath.name)
+    if filepath.suffix == "":
+        folder += 1
+        count.update({"": folder})
+    elif filepath.suffix == ".csv":
+        csv_ += 1
+        count.update({"csv": csv})
+    elif filepath.suffix == ".md":
+        md += 1
+        count.update({"md": md})
+print(count)
+    

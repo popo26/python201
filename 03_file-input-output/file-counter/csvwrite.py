@@ -2,5 +2,6 @@
 
 import csv
 
-with open("filecounts.csv", "w") as csvfile:
-    print(csvfile.write("8,8,8,8"))
+with open("03_file-input-output/file-counter/filecounts.csv", "a") as csvfile:
+    # print(csvfile.read())
+    print(csvfile.write("\n1,1,1,2"))
